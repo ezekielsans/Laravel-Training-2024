@@ -25,3 +25,26 @@ Route::view('/', 'welcome');
 Route::get('/home', function () {
     return to_route('admin.users.management');
 });
+
+Route::prefix('/user')->name('user.')->group(function () {
+    Route::get('/profile', function () {
+        return "
+            <strong>Name: </strong> Danniel Libor
+            <br>
+            <strong>Address: </strong> Philippines
+            <br>
+            <strong>Email: </strong> dan@mail.test
+        ";
+    })->name('profile');
+
+    Route::get('/work-experience', function () {
+        return "
+            <strong>Company: </strong> Inventive Media
+            <br>
+            <strong>Position: </strong> Trainer
+        ";
+    })->name('work-experience');
+
+    // Route::redirect('/', '/user/profile')->name('home');
+    Route::get('/', fn () => to_route('user.profile'))->name('home');
+});
