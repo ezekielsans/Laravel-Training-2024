@@ -2,23 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     /**
-     * Display the user's work experience.
+     * Display the user's profile.
      *
      * @return string
      */
     public function profile()
     {
+        $name = (new Profile)->getData()['name'];
+        $address = Profile::address;
+        $email = Profile::email;
+
         return "
-            <strong>Name: </strong> Danniel Libor
+            <strong>Name: </strong> $name
             <br>
-            <strong>Address: </strong> Philippines
+            <strong>Address: </strong> $address
             <br>
-            <strong>Email: </strong> dan@mail.test
+            <strong>Email: </strong> $email
+        ";
+    }
+
+    /**
+     * Display the user's work experience.
+     *
+     * @return string
+     */
+    public function workExperience()
+    {
+        // env('DB_CONNECTION');
+        config('database.default');
+
+        return "
+            <strong>Company: </strong> Inventive Media
+            <br>
+            <strong>Position: </strong> Trainer
         ";
     }
 }
