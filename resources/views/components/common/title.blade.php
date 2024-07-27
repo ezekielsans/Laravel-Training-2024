@@ -1,7 +1,7 @@
-<h1 style="color: violet">
-    {{ $slot }}
-</h1>
+@props(['title'])
 
-<i>
-    {{ $caption }}
-</i>
+<div style="width: 100%; text-align: center">
+    <h1>
+        {{ $title }}
+    </h1>
+</div>
