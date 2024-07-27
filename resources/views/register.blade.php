@@ -19,7 +19,7 @@
         <br>
         <br>
 
-        <x-forms.field label="Confirm Password" type="text" name="confirm_password"/>
+        <x-forms.field label="Confirm Password" type="text" name="password_confirmation"/>
 
         <br>
         <br>

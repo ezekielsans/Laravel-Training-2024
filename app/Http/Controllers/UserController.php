@@ -85,7 +85,6 @@ class UserController extends Controller
                 'required',
                 'string',
                 'max:12',
-                // 'min:8',
                 'confirmed',
                 Password::min(8)
                     ->numbers()
@@ -93,7 +92,7 @@ class UserController extends Controller
                     ->symbols()
                     ->letters()
             ],
-            'confirm_password' => 'required'
+            'password_confirmation' => 'required'
         ]);
 
         dd("Test");
