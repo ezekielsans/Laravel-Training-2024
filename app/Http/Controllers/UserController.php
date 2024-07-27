@@ -43,4 +43,14 @@ class UserController extends Controller
             <strong>Position: </strong> Trainer
         ";
     }
+
+    /**
+     * Display register page.
+     *
+     * @return view
+     */
+    public function register()
+    {
+        return view('register');
+    }
 }

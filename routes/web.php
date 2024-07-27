@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PyramidController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -49,3 +50,7 @@ Route::get('/profile/{name?}', function (?string $name = 'No name found') {
 Route::get('/request', function (Request $request) {
     dd($request->query());
 });
+
+Route::get('/pyramid', [PyramidController::class, 'show']);
+
+Route::get('/register', [UserController::class, 'register']);
