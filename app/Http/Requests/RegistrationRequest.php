@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
 class RegistrationRequest extends FormRequest
@@ -23,7 +24,21 @@ class RegistrationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'alpha', 'string', 'max:50'],
+            'name' => [
+                'required',
+                'alpha',
+                'string',
+                'max:50',
+
+                // 'nullable',
+                // 'sometimes',
+                // 'required_if:email,null',
+                // 'in:admin,customer,guest',
+                // 'exists:users,name'
+                // Rule::in(['admin', 'customer', 'guest'])
+                // 'decimal'
+                // 'current_password'
+            ],
             'email' => [
                 'required',
                 'string',

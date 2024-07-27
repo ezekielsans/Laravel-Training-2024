@@ -78,4 +78,16 @@ class UserController extends Controller
     {
         return view('login');
     }
+
+    public function authenticate(Request $request)
+    {
+        $formData = $request->validate([
+            'email' => ['required', 'string'],
+            'password' => ['required', 'string']
+        ]);
+
+        // authenticating....
+
+        return redirect()->route('home');
+    }
 }

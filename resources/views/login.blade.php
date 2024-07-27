@@ -1,13 +1,15 @@
 <x-auth-page>
     <x-common.title title="Login"/>
 
-    <form class="form">
-        <x-forms.field label="Email" type="email"/>
+    <form class="form" action="{{ route('user.authenticate') }}" method="post">
+        @csrf
+
+        <x-forms.field label="Email" type="email" name="email"/>
 
         <br>
         <br>
 
-        <x-forms.field label="Password" type="password"/>
+        <x-forms.field label="Password" type="password" name="password"/>
 
         <br>
         <br>
