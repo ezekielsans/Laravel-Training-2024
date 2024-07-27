@@ -14,12 +14,12 @@
         <br>
         <br>
 
-        <x-forms.field label="Password" type="text" name="password"/>
+        <x-forms.field label="Password" type="password" name="password"/>
 
         <br>
         <br>
 
-        <x-forms.field label="Confirm Password" type="text" name="password_confirmation"/>
+        <x-forms.field label="Confirm Password" type="password" name="password_confirmation"/>
 
         <br>
         <br>

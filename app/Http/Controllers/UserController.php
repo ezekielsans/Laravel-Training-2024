@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegistrationRequest;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Password;
@@ -59,43 +60,13 @@ class UserController extends Controller
      * Store a new user.
      *
      */
-    public function store(Request $request)
+    public function store(RegistrationRequest $request)
     {
-        /**
-         * name
-         * email
-         * password
-         * confirm password
-         */
+        $formData = $request->validated();
 
-        // if ($request->name !== null) {
-        //     return "Error";
-        // }
+        // saving....
 
-        $request->validate([
-            'name' => ['required', 'alpha', 'string', 'max:50'],
-            'email' => [
-                'required',
-                'string',
-                'email',
-                'unique:users,email',
-                'max:50'
-            ],
-            'password' => [
-                'required',
-                'string',
-                'max:12',
-                'confirmed',
-                Password::min(8)
-                    ->numbers()
-                    ->mixedCase()
-                    ->symbols()
-                    ->letters()
-            ],
-            'password_confirmation' => 'required'
-        ]);
-
-        dd("Test");
+        return redirect()->route('user.login');
     }
 
     /**
