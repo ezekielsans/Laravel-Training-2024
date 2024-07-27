@@ -9,6 +9,6 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $table = "admin_posts";
-    protected $connection = "legacy_mysql";
+    // protected $table = "admin_posts";
+    // protected $connection = "legacy_mysql";
 }
