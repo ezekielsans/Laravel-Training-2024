@@ -9,3 +9,7 @@
 </label>
 <br>
 <input type="{{ $type }}" class="input" name="{{ $name }}">
+
+@error($name)
+    <p>{{ $message }}</p>
+@enderror

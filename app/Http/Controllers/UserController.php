@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
@@ -72,7 +73,27 @@ class UserController extends Controller
         // }
 
         $request->validate([
-            'name' => 'required'
+            'name' => ['required', 'alpha', 'string', 'max:50'],
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'unique:users,email',
+                'max:50'
+            ],
+            'password' => [
+                'required',
+                'string',
+                'max:12',
+                // 'min:8',
+                'confirmed',
+                Password::min(8)
+                    ->numbers()
+                    ->mixedCase()
+                    ->symbols()
+                    ->letters()
+            ],
+            'confirm_password' => 'required'
         ]);
 
         dd("Test");

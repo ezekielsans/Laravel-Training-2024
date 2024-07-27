@@ -5,9 +5,6 @@
         @csrf
 
         <x-forms.field label="Name" type="text" name="name"/>
-        @error('name')
-            <p>{{ $message }}</p>
-        @enderror
 
         <br>
         <br>
@@ -17,12 +14,12 @@
         <br>
         <br>
 
-        <x-forms.field label="Password" type="password" name="password"/>
+        <x-forms.field label="Password" type="text" name="password"/>
 
         <br>
         <br>
 
-        <x-forms.field label="Confirm Password" type="password" name="confirm_password"/>
+        <x-forms.field label="Confirm Password" type="text" name="confirm_password"/>
 
         <br>
         <br>
