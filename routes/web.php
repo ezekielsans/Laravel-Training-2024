@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoopController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -25,3 +26,5 @@ Route::get('/profile/{name?}', function(?string $name = 'No Name'){
 });
 
 Route::get('/request', [UserController::class, 'request']);
+
+Route::get('/loop', [LoopController::class, 'loop']);
