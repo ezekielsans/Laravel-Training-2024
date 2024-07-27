@@ -1,4 +1,4 @@
-@props(['message', 'style'])
+@props(['message', 'style' => ''])
 
 <style>
     .bg {
@@ -10,7 +10,7 @@
     $attributes->merge(
             [
                 'class' => 'bg',
-                'style' => 'border: 1px solid yellow;' . $style
+                'style' => 'width: 50%; background: lightblue; border: none; cursor: pointer' . $style
             ]
         )
     }}

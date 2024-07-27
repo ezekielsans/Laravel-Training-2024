@@ -1,30 +1,33 @@
 <x-auth-page>
     <x-common.title title="Register"/>
 
-    <form class="form">
-        <x-forms.field label="Name" type="text"/>
+    <form class="form" action="{{ route('user.store') }}" method="post">
+        @csrf
+
+        <x-forms.field label="Name" type="text" name="name"/>
+        @error('name')
+            <p>{{ $message }}</p>
+        @enderror
 
         <br>
         <br>
 
-        <x-forms.field label="Email" type="email"/>
+        <x-forms.field label="Email" type="email" name="email"/>
 
         <br>
         <br>
 
-        <x-forms.field label="Password" type="password"/>
+        <x-forms.field label="Password" type="password" name="password"/>
 
         <br>
         <br>
 
-        <x-forms.field label="Confirm Password" type="password"/>
+        <x-forms.field label="Confirm Password" type="password" name="confirm_password"/>
 
         <br>
         <br>
 
-        <button type="submit" style="cursor: pointer; width: 50%; background: lightblue; border: none">
-            Register
-        </button>
+        <x-common.button type="submit" message="Register"/>
     </form>
 </x-auth-page>
 

@@ -55,6 +55,30 @@ class UserController extends Controller
     }
 
     /**
+     * Store a new user.
+     *
+     */
+    public function store(Request $request)
+    {
+        /**
+         * name
+         * email
+         * password
+         * confirm password
+         */
+
+        // if ($request->name !== null) {
+        //     return "Error";
+        // }
+
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        dd("Test");
+    }
+
+    /**
      * Display login page.
      *
      * @return view
