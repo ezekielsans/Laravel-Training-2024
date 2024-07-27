@@ -54,3 +54,4 @@ Route::get('/request', function (Request $request) {
 Route::get('/pyramid', [PyramidController::class, 'show']);
 
 Route::get('/register', [UserController::class, 'register']);
+Route::get('/login', [UserController::class, 'login']);

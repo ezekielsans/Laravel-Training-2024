@@ -9,19 +9,10 @@
 </head>
 <body>
     <div style="width: 100%; text-align: center">
-        <h1>Register</h1>
+        <h1>Login</h1>
     </div>
 
     <form class="form">
-        <label>
-            <strong>Name:</strong>
-        </label>
-        <br>
-        <input type="text" style="border: 1px solid grey">
-
-        <br>
-        <br>
-
         <label>
             <strong>Email:</strong>
         </label>
@@ -40,42 +31,9 @@
         <br>
         <br>
 
-        <label>
-            <strong>Confirm Password:</strong>
-        </label>
-        <br>
-        <input type="password" style="border: 1px solid grey">
-
-        <br>
-        <br>
-
         <button type="submit" style="cursor: pointer; width: 50%; background: lightblue; border: none">
-            Register
+            Login
         </button>
     </form>
 </body>
 </html>
-
-{{-- <x-header/>
-    <x-navigation/>
-
-    <x-body>
-        This is a body
-    </x-body>
-<x-footer/> --}}
-
-{{-- @if()
-        <p>Email is required!</p>
-    @endif
-
-    @foreach()
-        <tr>Rows</tr>
-    @endforeach
-
-    @switch()
-        @case()
-            @break
-
-        @default
-            @break
-    @endswitch --}}

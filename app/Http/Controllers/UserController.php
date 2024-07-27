@@ -53,4 +53,14 @@ class UserController extends Controller
     {
         return view('register');
     }
+
+    /**
+     * Display login page.
+     *
+     * @return view
+     */
+    public function login()
+    {
+        return view('login');
+    }
 }
