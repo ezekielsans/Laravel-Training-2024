@@ -114,4 +114,21 @@ class WorkExperienceController extends Controller
 
         return view('work-experience.edit', ['experience' => $model]);
     }
+
+    public function update(Request $request, WorkExperience $model)
+    {
+        $request->merge(['user_id' => $model->user_id]);
+
+        $formData = $request->validate([
+            'user_id' => ['required', 'integer'],
+            'company' => ['required', 'string', 'max:50'],
+            'from' => ['required', 'date'],
+            'to' => ['nullable', 'date', 'after:from'],
+            'position' => ['required', 'string', 'max:50'],
+        ]);
+
+        $model->update($formData);
+
+        return back()->with('success', 'Work Experience updated successfully');
+    }
 }

@@ -67,3 +67,5 @@ Route::post('/work-experience', [WorkExperienceController::class, 'store'])
 
 Route::get('/work-experience/{model}/edit', [WorkExperienceController::class, 'edit'])
     ->name('work-experience.edit');
+Route::put('/work-experience/{model}/update', [WorkExperienceController::class, 'update'])
+    ->name('work-experience.update');
