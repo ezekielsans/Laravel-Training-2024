@@ -4,6 +4,7 @@ use App\Http\Controllers\WorkExperienceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PyramidController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/admin/users')->name('admin.')->group(function () {

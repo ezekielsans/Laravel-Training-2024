@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegistrationRequest;
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
@@ -64,8 +66,11 @@ class UserController extends Controller
     {
         $formData = $request->validated();
 
-        // saving....
-        // dd($formData['user_id']);
+        $user = new User();
+        $user->name = $formData['name'];
+        $user->email = $formData['email'];
+        $user->password = $formData['password'];
+        $user->save();
 
         return redirect()->route('user.login');
     }
@@ -87,8 +92,16 @@ class UserController extends Controller
             'password' => ['required', 'string']
         ]);
 
-        // authenticating....
+        $authenticate = Auth::attempt($formData);
 
-        return redirect()->route('home');
+        if ($authenticate) {
+            $user = User::whereEmail($formData['email'])->first();
+
+            Auth::login($user);
+
+            return redirect()->route('admin.users.management');
+        } else {
+            return back()->with('error', 'Invalid Credentials');
+        }
     }
 }
