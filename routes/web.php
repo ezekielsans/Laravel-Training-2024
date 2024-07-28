@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoopController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -28,3 +29,9 @@ Route::get('/profile/{name?}', function(?string $name = 'No Name'){
 Route::get('/request', [UserController::class, 'request']);
 
 Route::get('/loop', [LoopController::class, 'loop']);
+
+Route::get('/register', [UserController::class, 'register'])->name('register');
+Route::post('/register', [UserController::class, 'store'])->name('user.register');
+
+Route::get('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'auth'])->name('user.login');

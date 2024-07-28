@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    display: flex;
+    min-width: 320px;
+    min-height: 100vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+.container{
+    display:flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: azure;
+    gap: 1rem;
+}
+
+.input-container{
+    display: block;
+}
+label{
+    margin-right: 10px;
+}
+
+input{
+    position: inherit;
+    right: 0;
+    width: 10rem;
+}

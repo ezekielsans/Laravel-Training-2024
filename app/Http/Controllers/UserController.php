@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegistrationRequest;
 use App\Models\Profile;
 use App\Models\WorkExperience;
 use Illuminate\Http\Request;
@@ -36,5 +37,15 @@ class UserController extends Controller
 
     public function request(Request $request){
         dd($request->query('name'));
+    }
+
+    public function register(){
+        return view('register');
+    }
+
+    public function store(RegistrationRequest $request){
+        $data = $request->validated();
+        
+        dd($data);
     }
 }
