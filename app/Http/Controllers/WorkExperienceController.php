@@ -17,8 +17,6 @@ class WorkExperienceController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $formData = $request->validated();
-
         // $experiences = DB::select('SELECT * FROM work_experiences LIMIT 1');
         // $experiences = DB::table('work_experiences')
         //     ->where(function ($query) {
@@ -54,11 +52,58 @@ class WorkExperienceController extends Controller
         //     ->join('users as u1', 'u1.id', '=', 'work_experiences.user_id')
         //     ->get();
 
-        $query1 = WorkExperience::where('id', 1);
+        // $query1 = WorkExperience::whereIn('id', [1, 3]);
 
-        $query2 = WorkExperience::where('id', 2)->union($query1)->get();
+        // $query2 = WorkExperience::where('id', 2)->union($query1)->get();
 
-        dd($query2->toArray());
+        // dd($query2->toArray());
+
+        // $formData = $request->validated();
+
+        // WorkExperience::create($formData);
+
+        // WorkExperience::insert([
+        //     [
+        //         'user_id' => 1,
+        //         'company' => 'Kshlerin-Ullrich',
+        //         'from' => '2021-01-01',
+        //         'to' => '2023-01-01',
+        //         'is_current' => 0,
+        //         'position' => 'Product Manager',
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ],
+        //     [
+        //         'user_id' => 2,
+        //         'company' => 'Kshlerin-Ullrich',
+        //         'from' => '2023-01-01',
+        //         'to' => '2024-01-01',
+        //         'is_current' => 1,
+        //         'position' => 'Product Manager',
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ]
+        // ]);
+
+        // $experience = new WorkExperience();
+        // $experience->user_id = $formData['user_id'];
+        // $experience->company = $formData['company'];
+        // $experience->from = $formData['from'];
+        // $experience->to = $formData['to'];
+        // $experience->position = $formData['position'];
+        // $experience->save();
+
+        // $experience = WorkExperience::where('id', 24)->update([
+        //     'company' => 'Updated Company Name'
+        // ]);
+
+        // $experience = WorkExperience::find(24);
+        // $experience->company = 'Inventive Media';
+        // $experience->save();
+
+        $experience = WorkExperience::truncate();
+
+        dd($experience);
 
         return back()->with('success', 'Work Experience added successfully');
     }
