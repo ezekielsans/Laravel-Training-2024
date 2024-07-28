@@ -58,7 +58,7 @@ class WorkExperienceController extends Controller
 
         // dd($query2->toArray());
 
-        // $formData = $request->validated();
+        $formData = $request->validated();
 
         // WorkExperience::create($formData);
 
@@ -85,13 +85,13 @@ class WorkExperienceController extends Controller
         //     ]
         // ]);
 
-        // $experience = new WorkExperience();
-        // $experience->user_id = $formData['user_id'];
-        // $experience->company = $formData['company'];
-        // $experience->from = $formData['from'];
-        // $experience->to = $formData['to'];
-        // $experience->position = $formData['position'];
-        // $experience->save();
+        $experience = new WorkExperience();
+        $experience->user_id = $formData['user_id'];
+        $experience->company = $formData['company'];
+        $experience->from = $formData['from'];
+        $experience->to = $formData['to'];
+        $experience->position = $formData['position'];
+        $experience->save();
 
         // $experience = WorkExperience::where('id', 24)->update([
         //     'company' => 'Updated Company Name'
@@ -101,10 +101,17 @@ class WorkExperienceController extends Controller
         // $experience->company = 'Inventive Media';
         // $experience->save();
 
-        $experience = WorkExperience::truncate();
+        // $experience = WorkExperience::truncate();
 
-        dd($experience);
+        // dd($experience);
 
         return back()->with('success', 'Work Experience added successfully');
+    }
+
+    public function edit(WorkExperience $model)
+    {
+        // $experience = WorkExperience::find($id);
+
+        return view('work-experience.edit', ['experience' => $model]);
     }
 }
