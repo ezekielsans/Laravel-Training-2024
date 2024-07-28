@@ -28,4 +28,14 @@ class WorkExperienceFactory extends Factory
             'position' => fake()->jobTitle(),
         ];
     }
+
+    public function current()
+    {
+        return $this->state(function ($attributes) {
+            return [
+                'to' => null,
+                'is_current' => true
+            ];
+        });
+    }
 }

@@ -14,6 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            UserSeeder::class
+        ]);
+
+
+
+
+
         // User::factory(10)->create();
 
         // User::factory()->create([
@@ -21,6 +29,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Post::factory()->count(10)->create();
+        // Post::factory()->count(10)->create();
     }
 }
