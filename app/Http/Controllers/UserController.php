@@ -65,6 +65,7 @@ class UserController extends Controller
         $formData = $request->validated();
 
         // saving....
+        // dd($formData['user_id']);
 
         return redirect()->route('user.login');
     }

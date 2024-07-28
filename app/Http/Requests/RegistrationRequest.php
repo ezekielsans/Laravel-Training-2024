@@ -24,6 +24,7 @@ class RegistrationRequest extends FormRequest
     public function rules(): array
     {
         return [
+            // 'user_id' => 'required',
             'name' => [
                 'required',
                 'alpha',
@@ -56,8 +57,23 @@ class RegistrationRequest extends FormRequest
                     ->mixedCase()
                     ->symbols()
                     ->letters()
+                    ->uncompromised()
             ],
             'password_confirmation' => 'required'
         ];
     }
+
+    // protected function prepareForValidation()
+    // {
+    //     $this->merge([
+    //         'user_id' => 1
+    //     ]);
+    // }
+
+    // public function messages()
+    // {
+    //     return [
+    //         'password.confirmed' => 'This is a custom error message for password confirmation.'
+    //     ];
+    // }
 }
