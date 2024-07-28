@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WorkExperienceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PyramidController;
 use Illuminate\Http\Request;
@@ -58,3 +59,8 @@ Route::post('/register', [UserController::class, 'store'])->name('user.store');
 
 Route::get('/login', [UserController::class, 'login'])->name('user.login');
 Route::post('/login', [UserController::class, 'authenticate'])->name('user.authenticate');
+
+Route::get('/work-experience', [WorkExperienceController::class, 'create'])
+    ->name('work-experience.create');
+Route::post('/work-experience', [WorkExperienceController::class, 'store'])
+    ->name('work-experience.store');
