@@ -70,3 +70,9 @@ Route::get('/work-experience/{model}/edit', [WorkExperienceController::class, 'e
     ->name('work-experience.edit');
 Route::put('/work-experience/{model}/update', [WorkExperienceController::class, 'update'])
     ->name('work-experience.update');
+
+Route::get('/logout', function () {
+    Auth::logout();
+
+    return to_route('user.login');
+});
